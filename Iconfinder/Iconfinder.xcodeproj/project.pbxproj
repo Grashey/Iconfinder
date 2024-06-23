@@ -25,6 +25,10 @@
 		4A1ECA932C288AA500535226 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA922C288AA500535226 /* Assembly.swift */; };
 		4A1ECA952C288B0800535226 /* ModuleName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA942C288B0800535226 /* ModuleName.swift */; };
 		4A1ECA982C288B9F00535226 /* SearchFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA972C288B9F00535226 /* SearchFactory.swift */; };
+		4A1ECA9C2C28B50600535226 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA9B2C28B50600535226 /* SearchView.swift */; };
+		4A1ECA9F2C28B8FF00535226 /* IconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA9E2C28B8FF00535226 /* IconTableViewCell.swift */; };
+		4A1ECAA12C28BB3E00535226 /* SearchStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAA02C28BB3E00535226 /* SearchStrings.swift */; };
+		4A1ECAA42C28CA1D00535226 /* IconViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAA32C28CA1D00535226 /* IconViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		4A1ECA922C288AA500535226 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		4A1ECA942C288B0800535226 /* ModuleName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleName.swift; sourceTree = "<group>"; };
 		4A1ECA972C288B9F00535226 /* SearchFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactory.swift; sourceTree = "<group>"; };
+		4A1ECA9B2C28B50600535226 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		4A1ECA9E2C28B8FF00535226 /* IconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTableViewCell.swift; sourceTree = "<group>"; };
+		4A1ECAA02C28BB3E00535226 /* SearchStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStrings.swift; sourceTree = "<group>"; };
+		4A1ECAA32C28CA1D00535226 /* IconViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,8 +210,11 @@
 			children = (
 				4A1ECA9A2C288BEA00535226 /* Navigation */,
 				4A1ECA992C288BE200535226 /* Factory */,
+				4A1ECAA52C28D0EC00535226 /* Model */,
+				4A1ECA9D2C28B50C00535226 /* View */,
 				4A1ECA8C2C28873700535226 /* SearchPresenter.swift */,
 				4A1ECA8A2C28871100535226 /* SearchViewController.swift */,
+				4A1ECAA22C28BB4300535226 /* Misc */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -232,6 +243,31 @@
 				4A1ECA8E2C2887C400535226 /* SearchCoordinator.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		4A1ECA9D2C28B50C00535226 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECA9B2C28B50600535226 /* SearchView.swift */,
+				4A1ECA9E2C28B8FF00535226 /* IconTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4A1ECAA22C28BB4300535226 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECAA02C28BB3E00535226 /* SearchStrings.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		4A1ECAA52C28D0EC00535226 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECAA32C28CA1D00535226 /* IconViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,14 +404,18 @@
 				4A1ECA932C288AA500535226 /* Assembly.swift in Sources */,
 				4A1ECA8B2C28871100535226 /* SearchViewController.swift in Sources */,
 				4A1ECA912C28882400535226 /* RootCoordinator.swift in Sources */,
+				4A1ECAA42C28CA1D00535226 /* IconViewModel.swift in Sources */,
 				4A1ECA822C2883F200535226 /* TabBarController.swift in Sources */,
 				4A1ECA862C2885D700535226 /* TabBarCoordinator.swift in Sources */,
 				4A1ECA8F2C2887C400535226 /* SearchCoordinator.swift in Sources */,
 				4A1ECA842C28840000535226 /* TabBarStrings.swift in Sources */,
 				4A1ECA422C28758500535226 /* AppDelegate.swift in Sources */,
+				4A1ECA9F2C28B8FF00535226 /* IconTableViewCell.swift in Sources */,
 				4A1ECA8D2C28873700535226 /* SearchPresenter.swift in Sources */,
+				4A1ECA9C2C28B50600535226 /* SearchView.swift in Sources */,
 				4A1ECA982C288B9F00535226 /* SearchFactory.swift in Sources */,
 				4A1ECA952C288B0800535226 /* ModuleName.swift in Sources */,
+				4A1ECAA12C28BB3E00535226 /* SearchStrings.swift in Sources */,
 				4A1ECA442C28758500535226 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
