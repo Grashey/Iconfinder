@@ -15,6 +15,16 @@
 		4A1ECA5C2C28758700535226 /* IconfinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA5B2C28758700535226 /* IconfinderTests.swift */; };
 		4A1ECA662C28758800535226 /* IconfinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA652C28758700535226 /* IconfinderUITests.swift */; };
 		4A1ECA682C28758800535226 /* IconfinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA672C28758800535226 /* IconfinderUITestsLaunchTests.swift */; };
+		4A1ECA822C2883F200535226 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA812C2883F200535226 /* TabBarController.swift */; };
+		4A1ECA842C28840000535226 /* TabBarStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA832C28840000535226 /* TabBarStrings.swift */; };
+		4A1ECA862C2885D700535226 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA852C2885D700535226 /* TabBarCoordinator.swift */; };
+		4A1ECA8B2C28871100535226 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA8A2C28871100535226 /* SearchViewController.swift */; };
+		4A1ECA8D2C28873700535226 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA8C2C28873700535226 /* SearchPresenter.swift */; };
+		4A1ECA8F2C2887C400535226 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA8E2C2887C400535226 /* SearchCoordinator.swift */; };
+		4A1ECA912C28882400535226 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA902C28882400535226 /* RootCoordinator.swift */; };
+		4A1ECA932C288AA500535226 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA922C288AA500535226 /* Assembly.swift */; };
+		4A1ECA952C288B0800535226 /* ModuleName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA942C288B0800535226 /* ModuleName.swift */; };
+		4A1ECA982C288B9F00535226 /* SearchFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA972C288B9F00535226 /* SearchFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +57,16 @@
 		4A1ECA612C28758700535226 /* IconfinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IconfinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1ECA652C28758700535226 /* IconfinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconfinderUITests.swift; sourceTree = "<group>"; };
 		4A1ECA672C28758800535226 /* IconfinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconfinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4A1ECA812C2883F200535226 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		4A1ECA832C28840000535226 /* TabBarStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarStrings.swift; sourceTree = "<group>"; };
+		4A1ECA852C2885D700535226 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		4A1ECA8A2C28871100535226 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		4A1ECA8C2C28873700535226 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		4A1ECA8E2C2887C400535226 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		4A1ECA902C28882400535226 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		4A1ECA922C288AA500535226 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		4A1ECA942C288B0800535226 /* ModuleName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleName.swift; sourceTree = "<group>"; };
+		4A1ECA972C288B9F00535226 /* SearchFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +157,7 @@
 		4A1ECA7B2C287F0500535226 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				4A1ECA962C288B5400535226 /* Navigation */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -144,8 +165,73 @@
 		4A1ECA7F2C2883A400535226 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				4A1ECA892C2886FC00535226 /* Search */,
+				4A1ECA802C2883E300535226 /* TabBar */,
 			);
 			path = Flows;
+			sourceTree = "<group>";
+		};
+		4A1ECA802C2883E300535226 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECA872C2886DF00535226 /* Navigation */,
+				4A1ECA812C2883F200535226 /* TabBarController.swift */,
+				4A1ECA882C2886EA00535226 /* Misc */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		4A1ECA872C2886DF00535226 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECA852C2885D700535226 /* TabBarCoordinator.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		4A1ECA882C2886EA00535226 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECA832C28840000535226 /* TabBarStrings.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		4A1ECA892C2886FC00535226 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECA9A2C288BEA00535226 /* Navigation */,
+				4A1ECA992C288BE200535226 /* Factory */,
+				4A1ECA8C2C28873700535226 /* SearchPresenter.swift */,
+				4A1ECA8A2C28871100535226 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		4A1ECA962C288B5400535226 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECA902C28882400535226 /* RootCoordinator.swift */,
+				4A1ECA922C288AA500535226 /* Assembly.swift */,
+				4A1ECA942C288B0800535226 /* ModuleName.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		4A1ECA992C288BE200535226 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECA972C288B9F00535226 /* SearchFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		4A1ECA9A2C288BEA00535226 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECA8E2C2887C400535226 /* SearchCoordinator.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,7 +365,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A1ECA4C2C28758500535226 /* Iconfinder.xcdatamodeld in Sources */,
+				4A1ECA932C288AA500535226 /* Assembly.swift in Sources */,
+				4A1ECA8B2C28871100535226 /* SearchViewController.swift in Sources */,
+				4A1ECA912C28882400535226 /* RootCoordinator.swift in Sources */,
+				4A1ECA822C2883F200535226 /* TabBarController.swift in Sources */,
+				4A1ECA862C2885D700535226 /* TabBarCoordinator.swift in Sources */,
+				4A1ECA8F2C2887C400535226 /* SearchCoordinator.swift in Sources */,
+				4A1ECA842C28840000535226 /* TabBarStrings.swift in Sources */,
 				4A1ECA422C28758500535226 /* AppDelegate.swift in Sources */,
+				4A1ECA8D2C28873700535226 /* SearchPresenter.swift in Sources */,
+				4A1ECA982C288B9F00535226 /* SearchFactory.swift in Sources */,
+				4A1ECA952C288B0800535226 /* ModuleName.swift in Sources */,
 				4A1ECA442C28758500535226 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
