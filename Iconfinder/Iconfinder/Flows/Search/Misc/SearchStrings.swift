@@ -14,6 +14,7 @@ enum SearchStrings {
         static let maxSize = "Размер:"
         static let tags = "Тэги:"
         static let download = "Нажмите, чтобы сохранить"
+        static let main = "Поиск"
     }
     
     enum Image {

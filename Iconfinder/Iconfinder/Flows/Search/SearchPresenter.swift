@@ -10,7 +10,8 @@ import UIKit
 protocol iSearchPresenter {
     var viewModels: [IconViewModel] {get set}
     
-    func getData(with query: String?)
+    func findIcons(with query: String?)
+    func clearSearch()
 }
 
 class SearchPresenter: iSearchPresenter {
@@ -20,16 +21,46 @@ class SearchPresenter: iSearchPresenter {
     var viewModels: [IconViewModel] = []
     private var models: [IconModel] = []
     private var pageNumber: Int = 0
+    private var totalCount: Int?
+    private var searchText: String?
     
     init(networkService: iSearchNetworkService) {
         self.networkService = networkService
     }
     
-    func getData(with query: String?) {
+    func clearSearch() {
+        searchText = nil
+        refresh()
+        getData()
+    }
+    
+    func findIcons(with query: String?) {
+        if searchText != query {
+            searchText = query
+            refresh()
+            getData()
+        }
+    }
+    
+    func refresh() {
+        pageNumber = 1
+        totalCount = nil
+        models.removeAll()
+        viewModels.removeAll()
+        viewController?.reloadView()
+    }
+
+    
+    func getData() {
+        if let totalCount = totalCount {
+            guard totalCount >= pageNumber*10 else { return }
+        }
+        
         Task {
             do {
-                let data = try await networkService.searchPhotos(query, page: pageNumber)
+                let data = try await networkService.searchPhotos(searchText, page: pageNumber)
                 let response = try JSONDecoder().decode(IconResponse.self, from: data)
+                totalCount = response.totalCount
                 let iconModels = response.icons.map({ makeModel($0)})
                 models += iconModels
                 viewModels += iconModels.map({ IconViewModel(size: $0.size, tags: $0.tags)})
