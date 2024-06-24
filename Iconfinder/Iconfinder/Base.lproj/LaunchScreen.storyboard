@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_iconfinder_512" translatesAutoresizingMaskIntoConstraints="NO" id="0XH-VX-EzG">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_iconfinder_logo" translatesAutoresizingMaskIntoConstraints="NO" id="0XH-VX-EzG">
                                 <rect key="frame" x="40" y="229.66666666666663" width="313" height="313"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0XH-VX-EzG" secondAttribute="height" multiplier="1:1" id="DSI-b2-ozt"/>
@@ -48,7 +48,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_iconfinder_512" width="512" height="512"/>
+        <image name="icon_iconfinder_logo" width="512" height="512"/>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
