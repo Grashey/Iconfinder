@@ -137,8 +137,8 @@ class IconTableViewCell: UITableViewCell {
             mainBackground.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
             iconView.topAnchor.constraint(equalTo: mainBackground.topAnchor, constant: inset),
-            iconView.leadingAnchor.constraint(equalTo: mainBackground.leadingAnchor, constant: inset*5),
-            iconView.trailingAnchor.constraint(equalTo: mainBackground.trailingAnchor, constant: -inset*5),
+            iconView.leadingAnchor.constraint(equalTo: mainBackground.leadingAnchor, constant: inset*6),
+            iconView.trailingAnchor.constraint(equalTo: mainBackground.trailingAnchor, constant: -inset*6),
             iconView.heightAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 1),
             
             favoriteButton.topAnchor.constraint(equalTo: mainBackground.topAnchor, constant: inset),
@@ -150,7 +150,7 @@ class IconTableViewCell: UITableViewCell {
             downloadLabel.centerXAnchor.constraint(equalTo: iconView.centerXAnchor),
             
             infoStackView.topAnchor.constraint(equalTo: downloadLabel.bottomAnchor, constant: inset),
-            infoStackView.bottomAnchor.constraint(equalTo: mainBackground.bottomAnchor, constant: -inset*2),
+            infoStackView.bottomAnchor.constraint(equalTo: mainBackground.bottomAnchor, constant: -inset),
             infoStackView.leadingAnchor.constraint(equalTo: mainBackground.leadingAnchor, constant: inset),
             infoStackView.trailingAnchor.constraint(equalTo: mainBackground.trailingAnchor, constant: -inset)
         ])

@@ -11,7 +11,8 @@ enum SearchFactory {
     
    static func build() -> UIViewController {
        let controller = SearchViewController()
-       let presenter = SearchPresenter()
+       let networkService = SearchNetworkService()
+       let presenter = SearchPresenter(networkService: networkService)
        controller.presenter = presenter
        presenter.viewController = controller
        return controller
