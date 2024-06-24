@@ -21,7 +21,7 @@ class SearchViewController: UIViewController {
         searchView.configureTableView(cell: IconTableViewCell.self, with: IconTableViewCell.description())
         searchView.configureTableView(delegateAndDataSourse: self)
         
-        presenter?.getData()
+        presenter?.getData(with: "")
     }
     
     func reloadView() {

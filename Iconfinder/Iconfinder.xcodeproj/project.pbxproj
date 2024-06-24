@@ -29,6 +29,16 @@
 		4A1ECA9F2C28B8FF00535226 /* IconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA9E2C28B8FF00535226 /* IconTableViewCell.swift */; };
 		4A1ECAA12C28BB3E00535226 /* SearchStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAA02C28BB3E00535226 /* SearchStrings.swift */; };
 		4A1ECAA42C28CA1D00535226 /* IconViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAA32C28CA1D00535226 /* IconViewModel.swift */; };
+		4A1ECAA82C299CA200535226 /* IconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAA72C299CA200535226 /* IconModel.swift */; };
+		4A1ECAAA2C299D7100535226 /* IconResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAA92C299D7100535226 /* IconResponse.swift */; };
+		4A1ECAAC2C29ABF600535226 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAAB2C29ABF600535226 /* Api.swift */; };
+		4A1ECAAE2C29B42A00535226 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAAD2C29B42A00535226 /* Route.swift */; };
+		4A1ECAB02C29B5D000535226 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAAF2C29B5D000535226 /* RequestBuilder.swift */; };
+		4A1ECAB22C29B6BE00535226 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAB12C29B6BE00535226 /* HTTPClient.swift */; };
+		4A1ECAB42C29B72600535226 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAB32C29B72600535226 /* NetworkError.swift */; };
+		4A1ECAB62C29B74E00535226 /* SearchRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAB52C29B74E00535226 /* SearchRoute.swift */; };
+		4A1ECAB92C29B81C00535226 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAB82C29B81C00535226 /* EndPoint.swift */; };
+		4A1ECABB2C29B85C00535226 /* SearchNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECABA2C29B85C00535226 /* SearchNetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +85,16 @@
 		4A1ECA9E2C28B8FF00535226 /* IconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTableViewCell.swift; sourceTree = "<group>"; };
 		4A1ECAA02C28BB3E00535226 /* SearchStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStrings.swift; sourceTree = "<group>"; };
 		4A1ECAA32C28CA1D00535226 /* IconViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewModel.swift; sourceTree = "<group>"; };
+		4A1ECAA72C299CA200535226 /* IconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconModel.swift; sourceTree = "<group>"; };
+		4A1ECAA92C299D7100535226 /* IconResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconResponse.swift; sourceTree = "<group>"; };
+		4A1ECAAB2C29ABF600535226 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		4A1ECAAD2C29B42A00535226 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		4A1ECAAF2C29B5D000535226 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		4A1ECAB12C29B6BE00535226 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		4A1ECAB32C29B72600535226 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		4A1ECAB52C29B74E00535226 /* SearchRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRoute.swift; sourceTree = "<group>"; };
+		4A1ECAB82C29B81C00535226 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		4A1ECABA2C29B85C00535226 /* SearchNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +185,7 @@
 		4A1ECA7B2C287F0500535226 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				4A1ECAA62C2997E600535226 /* Network */,
 				4A1ECA962C288B5400535226 /* Navigation */,
 			);
 			path = Core;
@@ -212,6 +233,7 @@
 				4A1ECA992C288BE200535226 /* Factory */,
 				4A1ECAA52C28D0EC00535226 /* Model */,
 				4A1ECA9D2C28B50C00535226 /* View */,
+				4A1ECAB72C29B75900535226 /* Network */,
 				4A1ECA8C2C28873700535226 /* SearchPresenter.swift */,
 				4A1ECA8A2C28871100535226 /* SearchViewController.swift */,
 				4A1ECAA22C28BB4300535226 /* Misc */,
@@ -266,8 +288,32 @@
 			isa = PBXGroup;
 			children = (
 				4A1ECAA32C28CA1D00535226 /* IconViewModel.swift */,
+				4A1ECAA72C299CA200535226 /* IconModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4A1ECAA62C2997E600535226 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECAAB2C29ABF600535226 /* Api.swift */,
+				4A1ECAAD2C29B42A00535226 /* Route.swift */,
+				4A1ECAAF2C29B5D000535226 /* RequestBuilder.swift */,
+				4A1ECAB12C29B6BE00535226 /* HTTPClient.swift */,
+				4A1ECAB32C29B72600535226 /* NetworkError.swift */,
+				4A1ECAB82C29B81C00535226 /* EndPoint.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4A1ECAB72C29B75900535226 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECAA92C299D7100535226 /* IconResponse.swift */,
+				4A1ECAB52C29B74E00535226 /* SearchRoute.swift */,
+				4A1ECABA2C29B85C00535226 /* SearchNetworkService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,23 +446,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A1ECAB92C29B81C00535226 /* EndPoint.swift in Sources */,
 				4A1ECA4C2C28758500535226 /* Iconfinder.xcdatamodeld in Sources */,
 				4A1ECA932C288AA500535226 /* Assembly.swift in Sources */,
+				4A1ECAA82C299CA200535226 /* IconModel.swift in Sources */,
 				4A1ECA8B2C28871100535226 /* SearchViewController.swift in Sources */,
 				4A1ECA912C28882400535226 /* RootCoordinator.swift in Sources */,
 				4A1ECAA42C28CA1D00535226 /* IconViewModel.swift in Sources */,
 				4A1ECA822C2883F200535226 /* TabBarController.swift in Sources */,
+				4A1ECAB02C29B5D000535226 /* RequestBuilder.swift in Sources */,
 				4A1ECA862C2885D700535226 /* TabBarCoordinator.swift in Sources */,
+				4A1ECAB62C29B74E00535226 /* SearchRoute.swift in Sources */,
+				4A1ECAB42C29B72600535226 /* NetworkError.swift in Sources */,
 				4A1ECA8F2C2887C400535226 /* SearchCoordinator.swift in Sources */,
 				4A1ECA842C28840000535226 /* TabBarStrings.swift in Sources */,
 				4A1ECA422C28758500535226 /* AppDelegate.swift in Sources */,
+				4A1ECAAA2C299D7100535226 /* IconResponse.swift in Sources */,
+				4A1ECAAE2C29B42A00535226 /* Route.swift in Sources */,
 				4A1ECA9F2C28B8FF00535226 /* IconTableViewCell.swift in Sources */,
 				4A1ECA8D2C28873700535226 /* SearchPresenter.swift in Sources */,
 				4A1ECA9C2C28B50600535226 /* SearchView.swift in Sources */,
 				4A1ECA982C288B9F00535226 /* SearchFactory.swift in Sources */,
 				4A1ECA952C288B0800535226 /* ModuleName.swift in Sources */,
 				4A1ECAA12C28BB3E00535226 /* SearchStrings.swift in Sources */,
+				4A1ECAB22C29B6BE00535226 /* HTTPClient.swift in Sources */,
+				4A1ECAAC2C29ABF600535226 /* Api.swift in Sources */,
 				4A1ECA442C28758500535226 /* SceneDelegate.swift in Sources */,
+				4A1ECABB2C29B85C00535226 /* SearchNetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
