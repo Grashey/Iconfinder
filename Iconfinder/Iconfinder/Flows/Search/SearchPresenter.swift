@@ -48,7 +48,7 @@ class SearchPresenter: NSObject, iSearchPresenter {
         totalCount = nil
         models.removeAll()
         viewModels.removeAll()
-        viewController?.reloadView()
+        viewController?.reloadView(showLabel: false)
     }
 
     
@@ -65,7 +65,7 @@ class SearchPresenter: NSObject, iSearchPresenter {
                 let iconModels = response.icons.map({ makeModel($0)})
                 models += iconModels
                 viewModels += iconModels.map({ IconViewModel(size: $0.size, tags: $0.tags)})
-                await viewController?.reloadView()
+                await viewController?.reloadView(showLabel: viewModels.isEmpty)
                 pageNumber += 1
 
                 for (index,model) in iconModels.enumerated() {

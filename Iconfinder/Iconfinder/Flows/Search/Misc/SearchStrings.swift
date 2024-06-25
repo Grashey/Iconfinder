@@ -15,6 +15,7 @@ enum SearchStrings {
         static let tags = "Тэги:"
         static let download = "Нажмите, чтобы сохранить"
         static let main = "Поиск"
+        static let noResults = "Нет результатов"
     }
     
     enum Image {

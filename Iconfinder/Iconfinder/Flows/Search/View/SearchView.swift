@@ -16,6 +16,14 @@ class SearchView: UIView {
         return $0
     }(UITableView())
     
+    private lazy var noResultsLabel: UILabel = {
+        $0.isHidden = true
+        $0.text = SearchStrings.Title.noResults
+        $0.font = .systemFont(ofSize: 16, weight: .semibold)
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UILabel())
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -30,6 +38,7 @@ class SearchView: UIView {
     
     private func addSubviews() {
         addSubview(tableView)
+        addSubview(noResultsLabel)
     }
     
     private func addConstraints() {
@@ -37,7 +46,10 @@ class SearchView: UIView {
             tableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            
+            noResultsLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            noResultsLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }
     
@@ -60,5 +72,9 @@ class SearchView: UIView {
     
     func reloadRows(at indexPaths: [IndexPath]) {
         tableView.reloadRows(at: indexPaths, with: .automatic)
+    }
+    
+    func showNoResults(_ isHidden: Bool) {
+         noResultsLabel.isHidden = !isHidden
     }
 }

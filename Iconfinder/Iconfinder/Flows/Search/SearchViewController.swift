@@ -39,8 +39,9 @@ class SearchViewController: UIViewController {
         presenter?.findIcons(with: "")
     }
     
-    func reloadView() {
+    func reloadView(showLabel: Bool) {
         searchView.reloadTableView()
+        searchView.showNoResults(showLabel)
     }
     
     func reloadRowAt(index: Int) {
@@ -101,12 +102,6 @@ extension SearchViewController: UITableViewDelegate {
 }
 
 extension SearchViewController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            presenter?.clearSearch()
-        }
-    }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         presenter?.clearSearch()
