@@ -14,6 +14,7 @@ class SearchViewController: UIViewController {
     
     private lazy var searchView = SearchView()
     
+    private let refreshControl = UIRefreshControl()
     private lazy var searchController: UISearchController = {
         $0.searchBar.searchBarStyle = .prominent
         $0.searchBar.placeholder = SearchStrings.Title.searchPlaceholder
@@ -35,8 +36,16 @@ class SearchViewController: UIViewController {
         
         searchView.configureTableView(cell: IconTableViewCell.self, with: IconTableViewCell.description())
         searchView.configureTableView(delegateAndDataSourse: self)
+        searchView.configureTableView(refreshControl: refreshControl)
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
-        presenter?.findIcons(with: "")
+        presenter?.fetchData()
+    }
+    
+    @objc private func refresh() {
+        presenter?.refresh()
+        presenter?.fetchData()
+        refreshControl.endRefreshing()
     }
     
     @objc private func operateFavorites(_ sender: UIButton) {
@@ -110,6 +119,13 @@ extension SearchViewController: UITableViewDelegate {
                 default: break
                 }
             }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let count = presenter?.viewModels.count else { return }
+        if indexPath.row > count - 2 {
+            presenter?.fetchData()
         }
     }
 }
