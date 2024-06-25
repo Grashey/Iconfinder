@@ -39,6 +39,7 @@
 		4A1ECAB62C29B74E00535226 /* SearchRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAB52C29B74E00535226 /* SearchRoute.swift */; };
 		4A1ECAB92C29B81C00535226 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAB82C29B81C00535226 /* EndPoint.swift */; };
 		4A1ECABB2C29B85C00535226 /* SearchNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECABA2C29B85C00535226 /* SearchNetworkService.swift */; };
+		4A1ECAC12C2AD97C00535226 /* UIViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAC02C2AD97C00535226 /* UIViewController + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		4A1ECAB52C29B74E00535226 /* SearchRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRoute.swift; sourceTree = "<group>"; };
 		4A1ECAB82C29B81C00535226 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		4A1ECABA2C29B85C00535226 /* SearchNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNetworkService.swift; sourceTree = "<group>"; };
+		4A1ECAC02C2AD97C00535226 /* UIViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			children = (
 				4A1ECA412C28758500535226 /* AppDelegate.swift */,
 				4A1ECA432C28758500535226 /* SceneDelegate.swift */,
+				4A1ECABF2C2AD95C00535226 /* Helpers */,
 				4A1ECA7B2C287F0500535226 /* Core */,
 				4A1ECA7F2C2883A400535226 /* Flows */,
 				4A1ECA4D2C28758700535226 /* Assets.xcassets */,
@@ -316,6 +319,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		4A1ECABF2C2AD95C00535226 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECAC02C2AD97C00535226 /* UIViewController + Ext.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -462,6 +473,7 @@
 				4A1ECA842C28840000535226 /* TabBarStrings.swift in Sources */,
 				4A1ECA422C28758500535226 /* AppDelegate.swift in Sources */,
 				4A1ECAAA2C299D7100535226 /* IconResponse.swift in Sources */,
+				4A1ECAC12C2AD97C00535226 /* UIViewController + Ext.swift in Sources */,
 				4A1ECAAE2C29B42A00535226 /* Route.swift in Sources */,
 				4A1ECA9F2C28B8FF00535226 /* IconTableViewCell.swift in Sources */,
 				4A1ECA8D2C28873700535226 /* SearchPresenter.swift in Sources */,
