@@ -13,5 +13,5 @@ struct IconModel {
     let tags: String
     let size: String
     let urlString: String
-    let imageData: Data?
+    var imageData: Data
 }

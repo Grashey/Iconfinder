@@ -10,23 +10,29 @@ import UIKit
 protocol iSearchPresenter {
     var viewModels: [IconViewModel] {get set}
     
-    func findIcons(with query: String?)
     func clearSearch()
+    func findIcons(with query: String?)
     func saveImageAt(_ index: Int)
+    func serveFavorites(index: Int)
+    func isFavorite(index: Int) -> Bool
 }
 
 class SearchPresenter: NSObject, iSearchPresenter {
     
     weak var viewController: SearchViewController?
-    let networkService: iSearchNetworkService
+    private let networkService: iSearchNetworkService
+    private let iconKeeper: IconDataKeeper
+    private let imageKeeper: ImageDataKeeper
     var viewModels: [IconViewModel] = []
     private var models: [IconModel] = []
     private var pageNumber: Int = 0
     private var totalCount: Int?
     private var searchText: String?
     
-    init(networkService: iSearchNetworkService) {
+    init(networkService: iSearchNetworkService, iconKeeper: IconDataKeeper, imageKeeper: ImageDataKeeper) {
         self.networkService = networkService
+        self.iconKeeper = iconKeeper
+        self.imageKeeper = imageKeeper
     }
     
     func clearSearch() {
@@ -43,20 +49,30 @@ class SearchPresenter: NSObject, iSearchPresenter {
         }
     }
     
-    func refresh() {
-        pageNumber = 1
-        totalCount = nil
-        models.removeAll()
-        viewModels.removeAll()
-        viewController?.reloadView(showLabel: false)
+    func saveImageAt(_ index: Int) {
+        guard let image = viewModels[index].image else { return }
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(savingStatus(_:didFinishSavingWithError:contextInfo:)), nil)
     }
-
     
-    func getData() {
+    func serveFavorites(index: Int) {
+        let icon = models[index]
+        if iconKeeper.checkIcon(id: icon.id) {
+            iconKeeper.deleteIcon(id: icon.id)
+        } else {
+            iconKeeper.addIconEntity(id: icon.id, date: icon.date, tags: icon.tags, size: icon.size, imageData: icon.imageData)
+        }
+        viewController?.reloadRowAt(index: index)
+    }
+    
+    func isFavorite(index: Int) -> Bool {
+        let icon = models[index]
+        return iconKeeper.checkIcon(id: icon.id)
+    }
+    
+    private func getData() {
         if let totalCount = totalCount {
             guard totalCount >= pageNumber*10 else { return }
         }
-        
         Task {
             do {
                 let data = try await networkService.searchPhotos(searchText, page: pageNumber)
@@ -67,25 +83,44 @@ class SearchPresenter: NSObject, iSearchPresenter {
                 viewModels += iconModels.map({ IconViewModel(size: $0.size, tags: $0.tags)})
                 await viewController?.reloadView(showLabel: viewModels.isEmpty)
                 pageNumber += 1
-
-                for (index,model) in iconModels.enumerated() {
-                    let imageData = try await fetchImage(model: model)
-                    let imageIndex = models.isEmpty ? index : models.count - iconModels.count + index
-                    guard viewModels.count >= imageIndex else { return }
-                    if let image = UIImage(data: imageData) {
-                        viewModels[imageIndex].image = image
-                        await viewController?.reloadRowAt(index: imageIndex)
-                    }
-                }
+                try await loadImageAndUpdateCellFor(iconModels)
             } catch(let error) {
                 await viewController?.showToast(message: error.localizedDescription, success: false)
             }
         }
     }
     
-    func saveImageAt(_ index: Int) {
-        guard let image = viewModels[index].image else { return }
-        UIImageWriteToSavedPhotosAlbum(image, self, #selector(savingStatus(_:didFinishSavingWithError:contextInfo:)), nil)
+    private func refresh() {
+        pageNumber = 0
+        totalCount = nil
+        models.removeAll()
+        viewModels.removeAll()
+        viewController?.reloadView(showLabel: false)
+    }
+    
+    private func loadImageAndUpdateCellFor(_ iconModels: [IconModel]) async throws {
+        for (index,model) in iconModels.enumerated() {
+            let imageData = try await getImageDataFor(model: model)
+            let imageIndex = models.isEmpty ? index : models.count - iconModels.count + index
+            guard viewModels.count >= imageIndex else { return }
+            if let image = UIImage(data: imageData) {
+                models[imageIndex].imageData = imageData
+                viewModels[imageIndex].image = image
+                await viewController?.reloadRowAt(index: imageIndex)
+            }
+        }
+    }
+    
+    private func getImageDataFor(model: IconModel) async throws -> Data {
+        var imageData: Data
+        if let data = imageKeeper.checkImage(id: model.id) {
+            imageData = data
+        } else {
+            let data = try await networkService.fetchFile(url: model.urlString)
+            imageKeeper.addImageEntity(id: model.id, imageData: data)
+            imageData = data
+        }
+        return imageData
     }
     
     @objc private func savingStatus(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
@@ -96,18 +131,13 @@ class SearchPresenter: NSObject, iSearchPresenter {
         }
     }
     
-    private func fetchImage(model: IconModel) async throws -> Data {
-        let imageData = try await networkService.fetchFile(url: model.urlString)
-        return imageData
-    }
-    
     private func makeModel(_ model: Icon) -> IconModel {
         let maxSize = model.rasterSizes.map({$0.size}).max()
-        let maxSizedModel = model.rasterSizes.filter({$0.size == maxSize }).first
-        let size = "\(maxSizedModel?.sizeWidth ?? 0) x \(maxSizedModel?.sizeHeight ?? 0)"
-        let urlString = maxSizedModel?.formats.filter({$0.format == "png"}).first?.imageUrl
+        let maxSizedModel = model.rasterSizes.filter({$0.size == maxSize}).first
+        let size = "\(maxSizedModel?.sizeWidth ?? .zero) x \(maxSizedModel?.sizeHeight ?? .zero)"
+        let urlString = maxSizedModel?.formats.filter({$0.format == "png"}).first?.imageUrl ?? ""
         let tags = model.tags.prefix(10).joined(separator: ", ")
-        let model = IconModel(id: String(model.iconID), date: Date(), tags: tags, size: size, urlString: urlString ?? "", imageData: nil)
+        let model = IconModel(id: String(model.iconID), date: Date(), tags: tags, size: size, urlString: urlString, imageData: Data())
         return model
     }
     

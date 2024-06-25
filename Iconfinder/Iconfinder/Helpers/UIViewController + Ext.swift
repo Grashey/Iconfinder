@@ -15,11 +15,13 @@ extension UIViewController {
         label.backgroundColor = backgroundColor.withAlphaComponent(0.7)
         label.textColor = UIColor.black
         label.font = .systemFont(ofSize: 16)
+        label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center;
         label.text = message
         label.alpha = 1.0
         label.layer.cornerRadius = 10;
         label.clipsToBounds  =  true
+        label.numberOfLines = 1
         view.addSubview(label)
         UIView.animate(withDuration: 1.0, delay: 1, options: .curveEaseOut, animations: {
             label.transform = CGAffineTransform(translationX: 0, y: 150)

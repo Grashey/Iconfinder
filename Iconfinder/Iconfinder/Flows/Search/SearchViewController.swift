@@ -39,6 +39,10 @@ class SearchViewController: UIViewController {
         presenter?.findIcons(with: "")
     }
     
+    @objc private func operateFavorites(_ sender: UIButton) {
+        presenter?.serveFavorites(index: sender.tag)
+    }
+    
     func reloadView(showLabel: Bool) {
         searchView.reloadTableView()
         searchView.showNoResults(showLabel)
@@ -74,10 +78,19 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: IconTableViewCell.description(), for: indexPath)
-        let image = UIImage(named: SearchStrings.Image.add)
+        var image: UIImage?
         if let model = presenter?.viewModels[indexPath.row] {
             (cell as? IconTableViewCell)?.configure(model)
-            (cell as? IconTableViewCell)?.configureButton(image: image)
+            
+            if let isFavorite = presenter?.isFavorite(index: indexPath.row) {
+                if isFavorite {
+                    image = UIImage(named: SearchStrings.Image.remove)
+                } else {
+                    image = UIImage(named: SearchStrings.Image.add)
+                }
+            }
+            (cell as? IconTableViewCell)?.configureButton(image: image, tag: indexPath.row)
+            (cell as? IconTableViewCell)?.configureButton(target: self, action: #selector(operateFavorites(_:)))
         }
         return cell
     }
