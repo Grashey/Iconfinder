@@ -47,6 +47,12 @@
 		4A1ECAD62C2AF39F00535226 /* FavoritesEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAD22C2AF39F00535226 /* FavoritesEntity+CoreDataProperties.swift */; };
 		4A1ECADB2C2B102600535226 /* ImageEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAD92C2B102600535226 /* ImageEntity+CoreDataClass.swift */; };
 		4A1ECADC2C2B102600535226 /* ImageEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECADA2C2B102600535226 /* ImageEntity+CoreDataProperties.swift */; };
+		4A1ECAE12C2B5EC600535226 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAE02C2B5EC600535226 /* FavoritesViewController.swift */; };
+		4A1ECAE32C2B5ED800535226 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAE22C2B5ED800535226 /* FavoritesPresenter.swift */; };
+		4A1ECAE52C2B5EE600535226 /* FavoritesStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAE42C2B5EE600535226 /* FavoritesStrings.swift */; };
+		4A1ECAE72C2B5F1500535226 /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAE62C2B5F1500535226 /* FavoritesCoordinator.swift */; };
+		4A1ECAE92C2B5F2500535226 /* FavoritesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAE82C2B5F2500535226 /* FavoritesFactory.swift */; };
+		4A1ECAEB2C2B5F3100535226 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAEA2C2B5F3100535226 /* FavoritesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +117,12 @@
 		4A1ECAD22C2AF39F00535226 /* FavoritesEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4A1ECAD92C2B102600535226 /* ImageEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4A1ECADA2C2B102600535226 /* ImageEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4A1ECAE02C2B5EC600535226 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		4A1ECAE22C2B5ED800535226 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		4A1ECAE42C2B5EE600535226 /* FavoritesStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStrings.swift; sourceTree = "<group>"; };
+		4A1ECAE62C2B5F1500535226 /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
+		4A1ECAE82C2B5F2500535226 /* FavoritesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesFactory.swift; sourceTree = "<group>"; };
+		4A1ECAEA2C2B5F3100535226 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +229,7 @@
 		4A1ECA7F2C2883A400535226 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				4A1ECADF2C2B5EA700535226 /* Favorites */,
 				4A1ECA892C2886FC00535226 /* Search */,
 				4A1ECA802C2883E300535226 /* TabBar */,
 			);
@@ -356,6 +369,51 @@
 			path = DataKeeper;
 			sourceTree = "<group>";
 		};
+		4A1ECADF2C2B5EA700535226 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECAED2C2B5FEF00535226 /* Navigation */,
+				4A1ECAEC2C2B5FBE00535226 /* Factory */,
+				4A1ECAEF2C2B607000535226 /* View */,
+				4A1ECAE02C2B5EC600535226 /* FavoritesViewController.swift */,
+				4A1ECAE22C2B5ED800535226 /* FavoritesPresenter.swift */,
+				4A1ECAEE2C2B605700535226 /* Misc */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		4A1ECAEC2C2B5FBE00535226 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECAE82C2B5F2500535226 /* FavoritesFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		4A1ECAED2C2B5FEF00535226 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECAE62C2B5F1500535226 /* FavoritesCoordinator.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		4A1ECAEE2C2B605700535226 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECAE42C2B5EE600535226 /* FavoritesStrings.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		4A1ECAEF2C2B607000535226 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECAEA2C2B5F3100535226 /* FavoritesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -490,12 +548,14 @@
 				4A1ECA4C2C28758500535226 /* Iconfinder.xcdatamodeld in Sources */,
 				4A1ECA932C288AA500535226 /* Assembly.swift in Sources */,
 				4A1ECAA82C299CA200535226 /* IconModel.swift in Sources */,
+				4A1ECAEB2C2B5F3100535226 /* FavoritesView.swift in Sources */,
 				4A1ECADB2C2B102600535226 /* ImageEntity+CoreDataClass.swift in Sources */,
 				4A1ECADC2C2B102600535226 /* ImageEntity+CoreDataProperties.swift in Sources */,
 				4A1ECA8B2C28871100535226 /* SearchViewController.swift in Sources */,
 				4A1ECAC32C2AEC9000535226 /* DataKeeper.swift in Sources */,
 				4A1ECA912C28882400535226 /* RootCoordinator.swift in Sources */,
 				4A1ECAA42C28CA1D00535226 /* IconViewModel.swift in Sources */,
+				4A1ECAE12C2B5EC600535226 /* FavoritesViewController.swift in Sources */,
 				4A1ECAD52C2AF39F00535226 /* FavoritesEntity+CoreDataClass.swift in Sources */,
 				4A1ECAD62C2AF39F00535226 /* FavoritesEntity+CoreDataProperties.swift in Sources */,
 				4A1ECA822C2883F200535226 /* TabBarController.swift in Sources */,
@@ -504,6 +564,7 @@
 				4A1ECA862C2885D700535226 /* TabBarCoordinator.swift in Sources */,
 				4A1ECAB62C29B74E00535226 /* SearchRoute.swift in Sources */,
 				4A1ECAB42C29B72600535226 /* NetworkError.swift in Sources */,
+				4A1ECAE72C2B5F1500535226 /* FavoritesCoordinator.swift in Sources */,
 				4A1ECA8F2C2887C400535226 /* SearchCoordinator.swift in Sources */,
 				4A1ECA842C28840000535226 /* TabBarStrings.swift in Sources */,
 				4A1ECA422C28758500535226 /* AppDelegate.swift in Sources */,
@@ -511,13 +572,16 @@
 				4A1ECAC12C2AD97C00535226 /* UIViewController + Ext.swift in Sources */,
 				4A1ECAAE2C29B42A00535226 /* Route.swift in Sources */,
 				4A1ECA9F2C28B8FF00535226 /* IconTableViewCell.swift in Sources */,
+				4A1ECAE32C2B5ED800535226 /* FavoritesPresenter.swift in Sources */,
 				4A1ECA8D2C28873700535226 /* SearchPresenter.swift in Sources */,
 				4A1ECA9C2C28B50600535226 /* SearchView.swift in Sources */,
 				4A1ECAC52C2AEDAC00535226 /* DIContainer.swift in Sources */,
 				4A1ECA982C288B9F00535226 /* SearchFactory.swift in Sources */,
 				4A1ECA952C288B0800535226 /* ModuleName.swift in Sources */,
+				4A1ECAE52C2B5EE600535226 /* FavoritesStrings.swift in Sources */,
 				4A1ECAA12C28BB3E00535226 /* SearchStrings.swift in Sources */,
 				4A1ECAB22C29B6BE00535226 /* HTTPClient.swift in Sources */,
+				4A1ECAE92C2B5F2500535226 /* FavoritesFactory.swift in Sources */,
 				4A1ECAAC2C29ABF600535226 /* Api.swift in Sources */,
 				4A1ECA442C28758500535226 /* SceneDelegate.swift in Sources */,
 				4A1ECABB2C29B85C00535226 /* SearchNetworkService.swift in Sources */,
