@@ -168,7 +168,8 @@ class IconTableViewCell: UITableViewCell {
         favoriteButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
-    func configureButton(image: UIImage?) {
+    func configureButton(image: UIImage?, tag: Int) {
         favoriteButton.setImage(image, for: .normal)
+        favoriteButton.tag = tag
     }
 }

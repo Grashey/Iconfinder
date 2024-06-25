@@ -12,7 +12,9 @@ enum SearchFactory {
    static func build() -> UIViewController {
        let controller = SearchViewController()
        let networkService = SearchNetworkService()
-       let presenter = SearchPresenter(networkService: networkService)
+       let iconKeeper = Container.shared.favorites
+       let imageKeeper = Container.shared.cache
+       let presenter = SearchPresenter(networkService: networkService, iconKeeper: iconKeeper, imageKeeper: imageKeeper)
        controller.presenter = presenter
        presenter.viewController = controller
        return controller
