@@ -40,6 +40,13 @@
 		4A1ECAB92C29B81C00535226 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAB82C29B81C00535226 /* EndPoint.swift */; };
 		4A1ECABB2C29B85C00535226 /* SearchNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECABA2C29B85C00535226 /* SearchNetworkService.swift */; };
 		4A1ECAC12C2AD97C00535226 /* UIViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAC02C2AD97C00535226 /* UIViewController + Ext.swift */; };
+		4A1ECAC32C2AEC9000535226 /* DataKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAC22C2AEC9000535226 /* DataKeeper.swift */; };
+		4A1ECAC52C2AEDAC00535226 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAC42C2AEDAC00535226 /* DIContainer.swift */; };
+		4A1ECAC82C2AEE1900535226 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAC72C2AEE1900535226 /* CoreDataStack.swift */; };
+		4A1ECAD52C2AF39F00535226 /* FavoritesEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAD12C2AF39F00535226 /* FavoritesEntity+CoreDataClass.swift */; };
+		4A1ECAD62C2AF39F00535226 /* FavoritesEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAD22C2AF39F00535226 /* FavoritesEntity+CoreDataProperties.swift */; };
+		4A1ECADB2C2B102600535226 /* ImageEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAD92C2B102600535226 /* ImageEntity+CoreDataClass.swift */; };
+		4A1ECADC2C2B102600535226 /* ImageEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECADA2C2B102600535226 /* ImageEntity+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +104,13 @@
 		4A1ECAB82C29B81C00535226 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		4A1ECABA2C29B85C00535226 /* SearchNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNetworkService.swift; sourceTree = "<group>"; };
 		4A1ECAC02C2AD97C00535226 /* UIViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Ext.swift"; sourceTree = "<group>"; };
+		4A1ECAC22C2AEC9000535226 /* DataKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataKeeper.swift; sourceTree = "<group>"; };
+		4A1ECAC42C2AEDAC00535226 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		4A1ECAC72C2AEE1900535226 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		4A1ECAD12C2AF39F00535226 /* FavoritesEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4A1ECAD22C2AF39F00535226 /* FavoritesEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4A1ECAD92C2B102600535226 /* ImageEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4A1ECADA2C2B102600535226 /* ImageEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +194,12 @@
 		4A1ECA792C287ED900535226 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				4A1ECAD12C2AF39F00535226 /* FavoritesEntity+CoreDataClass.swift */,
+				4A1ECAD22C2AF39F00535226 /* FavoritesEntity+CoreDataProperties.swift */,
+				4A1ECAD92C2B102600535226 /* ImageEntity+CoreDataClass.swift */,
+				4A1ECADA2C2B102600535226 /* ImageEntity+CoreDataProperties.swift */,
 				4A1ECA4A2C28758500535226 /* Iconfinder.xcdatamodeld */,
+				4A1ECAC72C2AEE1900535226 /* CoreDataStack.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -190,6 +209,7 @@
 			children = (
 				4A1ECAA62C2997E600535226 /* Network */,
 				4A1ECA962C288B5400535226 /* Navigation */,
+				4A1ECAC62C2AEDB700535226 /* DataKeeper */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -327,6 +347,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		4A1ECAC62C2AEDB700535226 /* DataKeeper */ = {
+			isa = PBXGroup;
+			children = (
+				4A1ECAC22C2AEC9000535226 /* DataKeeper.swift */,
+				4A1ECAC42C2AEDAC00535226 /* DIContainer.swift */,
+			);
+			path = DataKeeper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -461,10 +490,16 @@
 				4A1ECA4C2C28758500535226 /* Iconfinder.xcdatamodeld in Sources */,
 				4A1ECA932C288AA500535226 /* Assembly.swift in Sources */,
 				4A1ECAA82C299CA200535226 /* IconModel.swift in Sources */,
+				4A1ECADB2C2B102600535226 /* ImageEntity+CoreDataClass.swift in Sources */,
+				4A1ECADC2C2B102600535226 /* ImageEntity+CoreDataProperties.swift in Sources */,
 				4A1ECA8B2C28871100535226 /* SearchViewController.swift in Sources */,
+				4A1ECAC32C2AEC9000535226 /* DataKeeper.swift in Sources */,
 				4A1ECA912C28882400535226 /* RootCoordinator.swift in Sources */,
 				4A1ECAA42C28CA1D00535226 /* IconViewModel.swift in Sources */,
+				4A1ECAD52C2AF39F00535226 /* FavoritesEntity+CoreDataClass.swift in Sources */,
+				4A1ECAD62C2AF39F00535226 /* FavoritesEntity+CoreDataProperties.swift in Sources */,
 				4A1ECA822C2883F200535226 /* TabBarController.swift in Sources */,
+				4A1ECAC82C2AEE1900535226 /* CoreDataStack.swift in Sources */,
 				4A1ECAB02C29B5D000535226 /* RequestBuilder.swift in Sources */,
 				4A1ECA862C2885D700535226 /* TabBarCoordinator.swift in Sources */,
 				4A1ECAB62C29B74E00535226 /* SearchRoute.swift in Sources */,
@@ -478,6 +513,7 @@
 				4A1ECA9F2C28B8FF00535226 /* IconTableViewCell.swift in Sources */,
 				4A1ECA8D2C28873700535226 /* SearchPresenter.swift in Sources */,
 				4A1ECA9C2C28B50600535226 /* SearchView.swift in Sources */,
+				4A1ECAC52C2AEDAC00535226 /* DIContainer.swift in Sources */,
 				4A1ECA982C288B9F00535226 /* SearchFactory.swift in Sources */,
 				4A1ECA952C288B0800535226 /* ModuleName.swift in Sources */,
 				4A1ECAA12C28BB3E00535226 /* SearchStrings.swift in Sources */,
