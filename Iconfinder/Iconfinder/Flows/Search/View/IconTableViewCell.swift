@@ -137,8 +137,8 @@ class IconTableViewCell: UITableViewCell {
             mainBackground.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
             iconView.topAnchor.constraint(equalTo: mainBackground.topAnchor, constant: inset),
-            iconView.leadingAnchor.constraint(equalTo: mainBackground.leadingAnchor, constant: inset*6),
-            iconView.trailingAnchor.constraint(equalTo: mainBackground.trailingAnchor, constant: -inset*6),
+            iconView.leadingAnchor.constraint(equalTo: mainBackground.leadingAnchor, constant: inset*8),
+            iconView.trailingAnchor.constraint(equalTo: mainBackground.trailingAnchor, constant: -inset*8),
             iconView.heightAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 1),
             
             favoriteButton.topAnchor.constraint(equalTo: mainBackground.topAnchor, constant: inset),

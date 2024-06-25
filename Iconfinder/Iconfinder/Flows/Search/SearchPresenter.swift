@@ -15,6 +15,8 @@ protocol iSearchPresenter {
     func saveImageAt(_ index: Int)
     func serveFavorites(index: Int)
     func isFavorite(index: Int) -> Bool
+    func fetchData()
+    func refresh()
 }
 
 class SearchPresenter: NSObject, iSearchPresenter {
@@ -38,14 +40,14 @@ class SearchPresenter: NSObject, iSearchPresenter {
     func clearSearch() {
         searchText = nil
         refresh()
-        getData()
+        fetchData()
     }
     
     func findIcons(with query: String?) {
         if searchText != query {
             searchText = query
             refresh()
-            getData()
+            fetchData()
         }
     }
     
@@ -69,7 +71,7 @@ class SearchPresenter: NSObject, iSearchPresenter {
         return iconKeeper.checkIcon(id: icon.id)
     }
     
-    private func getData() {
+    func fetchData() {
         if let totalCount = totalCount {
             guard totalCount >= pageNumber*10 else { return }
         }
@@ -90,7 +92,7 @@ class SearchPresenter: NSObject, iSearchPresenter {
         }
     }
     
-    private func refresh() {
+    func refresh() {
         pageNumber = 0
         totalCount = nil
         models.removeAll()
