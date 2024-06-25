@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 class SearchViewController: UIViewController {
     
@@ -49,6 +50,19 @@ class SearchViewController: UIViewController {
     private func dismissKeyboard() {
         searchController.searchBar.endEditing(true)
     }
+    
+    func presentSavedImageAlert() {
+        DispatchQueue.main.async { [unowned self] in
+            let alert = UIAlertController()
+            alert.title = SearchStrings.Alert.request
+            alert.addAction(UIAlertAction(title: SearchStrings.Alert.settings, style: .default, handler: { _ in
+                guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }))
+            alert.addAction(UIAlertAction(title: SearchStrings.Alert.cancel, style: .destructive, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    }
 }
 
 extension SearchViewController: UITableViewDataSource {
@@ -71,7 +85,18 @@ extension SearchViewController: UITableViewDataSource {
 extension SearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("icon save")
+        let status = PHPhotoLibrary.authorizationStatus()
+        if status == .authorized {
+            presenter?.saveImageAt(indexPath.row)
+        } else {
+            PHPhotoLibrary.requestAuthorization { [unowned self] status in
+                switch status {
+                case .authorized, .limited: presenter?.saveImageAt(indexPath.row)
+                case .denied, .restricted: presentSavedImageAlert()
+                default: break
+                }
+            }
+        }
     }
 }
 

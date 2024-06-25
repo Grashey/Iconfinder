@@ -12,9 +12,10 @@ protocol iSearchPresenter {
     
     func findIcons(with query: String?)
     func clearSearch()
+    func saveImageAt(_ index: Int)
 }
 
-class SearchPresenter: iSearchPresenter {
+class SearchPresenter: NSObject, iSearchPresenter {
     
     weak var viewController: SearchViewController?
     let networkService: iSearchNetworkService
@@ -77,8 +78,21 @@ class SearchPresenter: iSearchPresenter {
                     }
                 }
             } catch(let error) {
-                print(error.localizedDescription)
+                await viewController?.showToast(message: error.localizedDescription, success: false)
             }
+        }
+    }
+    
+    func saveImageAt(_ index: Int) {
+        guard let image = viewModels[index].image else { return }
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(savingStatus(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    @objc private func savingStatus(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            viewController?.showToast(message: error.localizedDescription, success: false)
+        } else {
+            viewController?.showToast(message: SearchStrings.Alert.success, success: true)
         }
     }
     
@@ -87,7 +101,7 @@ class SearchPresenter: iSearchPresenter {
         return imageData
     }
     
-    func makeModel(_ model: Icon) -> IconModel {
+    private func makeModel(_ model: Icon) -> IconModel {
         let maxSize = model.rasterSizes.map({$0.size}).max()
         let maxSizedModel = model.rasterSizes.filter({$0.size == maxSize }).first
         let size = "\(maxSizedModel?.sizeWidth ?? 0) x \(maxSizedModel?.sizeHeight ?? 0)"
