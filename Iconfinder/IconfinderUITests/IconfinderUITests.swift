@@ -1,3 +1,4 @@
+
 //
 //  IconfinderUITests.swift
 //  IconfinderUITests
@@ -8,26 +9,38 @@
 import XCTest
 
 final class IconfinderUITests: XCTestCase {
+    
+    var app: XCUIApplication!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+        try super.setUpWithError()
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+        app = XCUIApplication()
         app.launch()
+    }
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testThatSearchTextFieldCallsKeyboard() throws {
+        // arrange
+       let searchTextField = app.navigationBars["Поиск"].searchFields["Введите запрос..."]
+       let key1 = app.keys["r"]
+       let key2 = app.keys["e"]
+       let key3 = app.keys["d"]
+       let searchButton = app.keyboards.buttons["Search"]
+                                       
+        // act
+        if searchTextField.isSelected {
+            XCTAssertTrue(key1.exists)
+            XCTAssertTrue(key2.exists)
+            XCTAssertTrue(key3.exists)
+            XCTAssertFalse(searchButton.isEnabled)
+            
+            key1.tap()
+            key2.tap()
+            key3.tap()
+            XCTAssertTrue(searchButton.isEnabled)
+            searchButton.tap()
+            XCTAssertFalse(searchButton.exists)
+        }
     }
 
     func testLaunchPerformance() throws {
