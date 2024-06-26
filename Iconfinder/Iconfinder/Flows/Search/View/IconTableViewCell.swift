@@ -96,10 +96,10 @@ class IconTableViewCell: UITableViewCell {
         return $0
     }(UIStackView())
     
-    private lazy var favoriteButton: UIButton = {
+    private lazy var favoriteButton: ExpandedButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(UIButton())
+    }(ExpandedButton())
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
