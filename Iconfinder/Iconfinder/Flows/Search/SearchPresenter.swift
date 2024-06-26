@@ -67,7 +67,7 @@ class SearchPresenter: NSObject, iSearchPresenter {
         if iconKeeper.checkIcon(id: icon.id) {
             iconKeeper.deleteIcon(id: icon.id)
         } else {
-            iconKeeper.addIconEntity(id: icon.id, date: icon.date, tags: icon.tags, size: icon.size, imageData: icon.imageData)
+            iconKeeper.addIconEntity(id: icon.id, date: Date(), tags: icon.tags, size: icon.size, imageData: icon.imageData)
         }
         viewController?.reloadRowAt(index: index)
     }
@@ -150,7 +150,7 @@ class SearchPresenter: NSObject, iSearchPresenter {
         let size = "\(maxSizedModel?.sizeWidth ?? .zero) x \(maxSizedModel?.sizeHeight ?? .zero)"
         let urlString = maxSizedModel?.formats.filter({$0.format == "png"}).first?.imageUrl ?? ""
         let tags = model.tags.prefix(10).joined(separator: ", ")
-        let model = IconModel(id: String(model.iconID), date: Date(), tags: tags, size: size, urlString: urlString, imageData: Data())
+        let model = IconModel(id: String(model.iconID), tags: tags, size: size, urlString: urlString, imageData: Data())
         return model
     }
     
