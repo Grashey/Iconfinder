@@ -12,7 +12,6 @@
 		4A1ECA4C2C28758500535226 /* Iconfinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA4A2C28758500535226 /* Iconfinder.xcdatamodeld */; };
 		4A1ECA4E2C28758700535226 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A1ECA4D2C28758700535226 /* Assets.xcassets */; };
 		4A1ECA512C28758700535226 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4A1ECA502C28758700535226 /* Base */; };
-		4A1ECA5C2C28758700535226 /* IconfinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA5B2C28758700535226 /* IconfinderTests.swift */; };
 		4A1ECA662C28758800535226 /* IconfinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA652C28758700535226 /* IconfinderUITests.swift */; };
 		4A1ECA682C28758800535226 /* IconfinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA672C28758800535226 /* IconfinderUITestsLaunchTests.swift */; };
 		4A1ECA822C2883F200535226 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECA812C2883F200535226 /* TabBarController.swift */; };
@@ -56,6 +55,8 @@
 		4A1ECAF12C2BDE1700535226 /* SpinnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAF02C2BDE1700535226 /* SpinnerController.swift */; };
 		4A1ECAF32C2BDEF300535226 /* SpinnerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAF22C2BDEF200535226 /* SpinnerManager.swift */; };
 		4A1ECAF92C2C2B5700535226 /* ExpandedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAF82C2C2B5700535226 /* ExpandedButton.swift */; };
+		4A1ECAFB2C2C369C00535226 /* FavoritesPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAFA2C2C369C00535226 /* FavoritesPresenterMock.swift */; };
+		4A1ECAFD2C2C395700535226 /* FavoritesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAFC2C2C395700535226 /* FavoritesViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +85,6 @@
 		4A1ECA502C28758700535226 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A1ECA522C28758700535226 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A1ECA572C28758700535226 /* IconfinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IconfinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A1ECA5B2C28758700535226 /* IconfinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconfinderTests.swift; sourceTree = "<group>"; };
 		4A1ECA612C28758700535226 /* IconfinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IconfinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1ECA652C28758700535226 /* IconfinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconfinderUITests.swift; sourceTree = "<group>"; };
 		4A1ECA672C28758800535226 /* IconfinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconfinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -129,6 +129,8 @@
 		4A1ECAF02C2BDE1700535226 /* SpinnerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerController.swift; sourceTree = "<group>"; };
 		4A1ECAF22C2BDEF200535226 /* SpinnerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerManager.swift; sourceTree = "<group>"; };
 		4A1ECAF82C2C2B5700535226 /* ExpandedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedButton.swift; sourceTree = "<group>"; };
+		4A1ECAFA2C2C369C00535226 /* FavoritesPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterMock.swift; sourceTree = "<group>"; };
+		4A1ECAFC2C2C395700535226 /* FavoritesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,7 +197,8 @@
 		4A1ECA5A2C28758700535226 /* IconfinderTests */ = {
 			isa = PBXGroup;
 			children = (
-				4A1ECA5B2C28758700535226 /* IconfinderTests.swift */,
+				4A1ECAFA2C2C369C00535226 /* FavoritesPresenterMock.swift */,
+				4A1ECAFC2C2C395700535226 /* FavoritesViewControllerTests.swift */,
 			);
 			path = IconfinderTests;
 			sourceTree = "<group>";
@@ -604,7 +607,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A1ECA5C2C28758700535226 /* IconfinderTests.swift in Sources */,
+				4A1ECAFD2C2C395700535226 /* FavoritesViewControllerTests.swift in Sources */,
+				4A1ECAFB2C2C369C00535226 /* FavoritesPresenterMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
