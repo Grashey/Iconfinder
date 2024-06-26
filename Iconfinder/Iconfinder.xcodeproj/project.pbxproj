@@ -55,6 +55,7 @@
 		4A1ECAEB2C2B5F3100535226 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAEA2C2B5F3100535226 /* FavoritesView.swift */; };
 		4A1ECAF12C2BDE1700535226 /* SpinnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAF02C2BDE1700535226 /* SpinnerController.swift */; };
 		4A1ECAF32C2BDEF300535226 /* SpinnerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAF22C2BDEF200535226 /* SpinnerManager.swift */; };
+		4A1ECAF92C2C2B5700535226 /* ExpandedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ECAF82C2C2B5700535226 /* ExpandedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		4A1ECAEA2C2B5F3100535226 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		4A1ECAF02C2BDE1700535226 /* SpinnerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerController.swift; sourceTree = "<group>"; };
 		4A1ECAF22C2BDEF200535226 /* SpinnerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerManager.swift; sourceTree = "<group>"; };
+		4A1ECAF82C2C2B5700535226 /* ExpandedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,6 +364,7 @@
 				4A1ECAC02C2AD97C00535226 /* UIViewController + Ext.swift */,
 				4A1ECAF02C2BDE1700535226 /* SpinnerController.swift */,
 				4A1ECAF22C2BDEF200535226 /* SpinnerManager.swift */,
+				4A1ECAF82C2C2B5700535226 /* ExpandedButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				4A1ECA912C28882400535226 /* RootCoordinator.swift in Sources */,
 				4A1ECAF32C2BDEF300535226 /* SpinnerManager.swift in Sources */,
 				4A1ECAA42C28CA1D00535226 /* IconViewModel.swift in Sources */,
+				4A1ECAF92C2C2B5700535226 /* ExpandedButton.swift in Sources */,
 				4A1ECAE12C2B5EC600535226 /* FavoritesViewController.swift in Sources */,
 				4A1ECAD52C2AF39F00535226 /* FavoritesEntity+CoreDataClass.swift in Sources */,
 				4A1ECAD62C2AF39F00535226 /* FavoritesEntity+CoreDataProperties.swift in Sources */,
