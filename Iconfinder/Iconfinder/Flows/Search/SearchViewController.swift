@@ -42,6 +42,12 @@ class SearchViewController: SpinnerManager {
         presenter?.fetchData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        searchView.reloadTableView()
+    }
+    
     @objc private func refresh() {
         presenter?.refresh()
         presenter?.fetchData()
