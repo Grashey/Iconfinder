@@ -14,8 +14,8 @@ class CoreDataStack {
     private let mainContext: NSManagedObjectContext
     private lazy var backgroundContext: NSManagedObjectContext = container.newBackgroundContext()
     private var coordinator: NSPersistentStoreCoordinator { container.persistentStoreCoordinator }
-    private let iconFetchRequest = NSFetchRequest<FavoritesEntity>(entityName: String(describing: FavoritesEntity.self))
-    private let imageFetchRequest = NSFetchRequest<ImageEntity>(entityName: String(describing: ImageEntity.self))
+    private let iconFetchRequest = FavoritesEntity.fetchRequest()
+    private let imageFetchRequest = ImageEntity.fetchRequest()
     
     init(model: CDModel) {
         let container = NSPersistentContainer(name: "Iconfinder")
@@ -84,9 +84,8 @@ extension CoreDataStack: IconDataKeeper {
     }
     
     func addIconEntity(id: String, date: Date, tags: String, size: String, imageData: Data) {
-        let fetchRequest = NSFetchRequest<FavoritesEntity>(entityName: String(describing: FavoritesEntity.self))
         do {
-            let count = try mainContext.count(for: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
+            let count = try mainContext.count(for: iconFetchRequest)
             if count == 10 {
                 deleteOldest()
             }
@@ -170,4 +169,14 @@ extension CoreDataStack {
             }
         }
     }
+}
+
+extension NSManagedObject {
+
+    convenience init(context: NSManagedObjectContext) {
+        let name = String(describing: type(of: self))
+        let entity = NSEntityDescription.entity(forEntityName: name, in: context)!
+        self.init(entity: entity, insertInto: context)
+    }
+
 }
