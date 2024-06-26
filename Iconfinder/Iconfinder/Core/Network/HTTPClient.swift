@@ -43,10 +43,13 @@ final class HTTPClient: iHTTPClient {
             throw NetworkError.response
         }
         if (400..<500).contains(httpResponse.statusCode) {
-            throw NetworkError.client
+            throw NetworkError.client(code: httpResponse.statusCode)
         }
         if (500..<600).contains(httpResponse.statusCode) {
-            throw NetworkError.server
+            throw NetworkError.server(code: httpResponse.statusCode)
+        }
+        if (700...).contains(httpResponse.statusCode) {
+            throw NetworkError.unknown(code: httpResponse.statusCode)
         }
         guard (200..<300).contains(httpResponse.statusCode), let data = handler?.data else {
             throw NetworkError.data
