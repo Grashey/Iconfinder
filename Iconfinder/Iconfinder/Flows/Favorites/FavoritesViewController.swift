@@ -40,7 +40,7 @@ class FavoritesViewController: UIViewController {
         presenter?.removeAt(sender.tag)
     }
     
-    @objc private func removeAll() {
+    @objc func removeAll() {
         presenter?.removeAll()
     }
     
