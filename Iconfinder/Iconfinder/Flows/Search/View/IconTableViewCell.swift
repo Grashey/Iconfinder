@@ -29,6 +29,13 @@ class IconTableViewCell: UITableViewCell {
         return $0
     }(UIImageView())
     
+    private lazy var iconBackground: UIView = {
+        $0.backgroundColor = traitCollection.userInterfaceStyle == .dark ? .lightGray : .white
+        $0.layer.cornerRadius = cornerRadius
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UIView())
+    
     private lazy var downloadLabel: UILabel = {
         $0.text = SearchStrings.Title.download
         $0.font = .italicSystemFont(ofSize: 12)
@@ -103,6 +110,11 @@ class IconTableViewCell: UITableViewCell {
         contentView.backgroundColor = .systemGray6
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        iconBackground.backgroundColor = traitCollection.userInterfaceStyle == .dark ? .lightGray : .white
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -121,8 +133,10 @@ class IconTableViewCell: UITableViewCell {
         infoStackView.addArrangedSubview(sizeStackView)
         infoStackView.addArrangedSubview(tagStackView)
         
+        iconBackground.addSubview(iconView)
+        
         mainBackground.addSubview(favoriteButton)
-        mainBackground.addSubview(iconView)
+        mainBackground.addSubview(iconBackground)
         mainBackground.addSubview(downloadLabel)
         mainBackground.addSubview(infoStackView)
         
@@ -136,18 +150,25 @@ class IconTableViewCell: UITableViewCell {
             mainBackground.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             mainBackground.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            iconView.topAnchor.constraint(equalTo: mainBackground.topAnchor, constant: inset),
-            iconView.leadingAnchor.constraint(equalTo: mainBackground.leadingAnchor, constant: inset*8),
-            iconView.trailingAnchor.constraint(equalTo: mainBackground.trailingAnchor, constant: -inset*8),
-            iconView.heightAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 1),
+            iconBackground.topAnchor.constraint(equalTo: mainBackground.topAnchor, constant: inset),
+            iconBackground.leadingAnchor.constraint(equalTo: mainBackground.leadingAnchor, constant: inset*6),
+            iconBackground.trailingAnchor.constraint(equalTo: mainBackground.trailingAnchor, constant: -inset*6),
+            iconBackground.heightAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 1),
+            
+            iconView.topAnchor.constraint(equalTo: iconBackground.topAnchor, constant: inset),
+            iconView.bottomAnchor.constraint(equalTo: iconBackground.bottomAnchor, constant: -inset),
+            iconView.leadingAnchor.constraint(equalTo: iconBackground.leadingAnchor, constant: inset),
+            iconView.trailingAnchor.constraint(equalTo: iconBackground.trailingAnchor, constant: -inset),
+
+//            iconView.heightAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 1),
             
             favoriteButton.topAnchor.constraint(equalTo: mainBackground.topAnchor, constant: inset),
             favoriteButton.trailingAnchor.constraint(equalTo: mainBackground.trailingAnchor, constant: -inset),
             favoriteButton.widthAnchor.constraint(equalToConstant: buttonSide),
             favoriteButton.heightAnchor.constraint(equalToConstant: buttonSide),
             
-            downloadLabel.topAnchor.constraint(equalTo: iconView.bottomAnchor, constant: 2),
-            downloadLabel.centerXAnchor.constraint(equalTo: iconView.centerXAnchor),
+            downloadLabel.topAnchor.constraint(equalTo: iconBackground.bottomAnchor, constant: 2),
+            downloadLabel.centerXAnchor.constraint(equalTo: iconBackground.centerXAnchor),
             
             infoStackView.topAnchor.constraint(equalTo: downloadLabel.bottomAnchor, constant: inset),
             infoStackView.bottomAnchor.constraint(equalTo: mainBackground.bottomAnchor, constant: -inset),
