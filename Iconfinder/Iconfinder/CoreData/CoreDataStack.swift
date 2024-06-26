@@ -11,7 +11,7 @@ import CoreData
 class CoreDataStack {
     
     private let container: NSPersistentContainer
-    private let mainContext: NSManagedObjectContext
+    let mainContext: NSManagedObjectContext
     private lazy var backgroundContext: NSManagedObjectContext = container.newBackgroundContext()
     private var coordinator: NSPersistentStoreCoordinator { container.persistentStoreCoordinator }
     private let iconFetchRequest = FavoritesEntity.fetchRequest()
@@ -84,14 +84,6 @@ extension CoreDataStack: IconDataKeeper {
     }
     
     func addIconEntity(id: String, date: Date, tags: String, size: String, imageData: Data) {
-        do {
-            let count = try mainContext.count(for: iconFetchRequest)
-            if count == 10 {
-                deleteOldest()
-            }
-        } catch (let error) {
-            print(error.localizedDescription)
-        }
         mainContext.performAndWait {
             let entity = FavoritesEntity(context: mainContext)
             entity.id = id
@@ -101,17 +93,6 @@ extension CoreDataStack: IconDataKeeper {
             entity.date = date
             entity.imageData = imageData
             try? mainContext.save()
-        }
-    }
-    
-    private func deleteOldest() {
-        let date = Date()
-        iconFetchRequest.predicate = .init(format: "date == '\(date)'")
-        backgroundContext.performAndWait {
-            if let objectToDelete = try? iconFetchRequest.execute().last {
-                backgroundContext.delete(objectToDelete)
-            }
-            try? backgroundContext.save()
         }
     }
 }
