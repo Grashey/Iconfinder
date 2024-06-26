@@ -17,6 +17,7 @@ protocol iSearchPresenter {
     func isFavorite(index: Int) -> Bool
     func fetchData()
     func refresh()
+    func updateImageFor(_ index: Int)
 }
 
 class SearchPresenter: NSObject, iSearchPresenter {
@@ -30,6 +31,11 @@ class SearchPresenter: NSObject, iSearchPresenter {
     private var pageNumber: Int = 0
     private var totalCount: Int?
     private var searchText: String?
+    var isLoading: Bool = false {
+        didSet {
+            viewController?.isLoading = isLoading
+        }
+    }
     
     init(networkService: iSearchNetworkService, iconKeeper: IconDataKeeper, imageKeeper: ImageDataKeeper) {
         self.networkService = networkService
@@ -75,6 +81,7 @@ class SearchPresenter: NSObject, iSearchPresenter {
         if let totalCount = totalCount {
             guard totalCount >= pageNumber*10 else { return }
         }
+        isLoading = true
         Task {
             do {
                 let data = try await networkService.searchPhotos(searchText, page: pageNumber)
@@ -85,9 +92,10 @@ class SearchPresenter: NSObject, iSearchPresenter {
                 viewModels += iconModels.map({ IconViewModel(size: $0.size, tags: $0.tags)})
                 await viewController?.reloadView(showLabel: viewModels.isEmpty)
                 pageNumber += 1
-                try await loadImageAndUpdateCellFor(iconModels)
+                isLoading = false
             } catch(let error) {
                 await viewController?.showToast(message: error.localizedDescription, success: false)
+                isLoading = false
             }
         }
     }
@@ -100,15 +108,18 @@ class SearchPresenter: NSObject, iSearchPresenter {
         viewController?.reloadView(showLabel: false)
     }
     
-    private func loadImageAndUpdateCellFor(_ iconModels: [IconModel]) async throws {
-        for (index,model) in iconModels.enumerated() {
-            let imageData = try await getImageDataFor(model: model)
-            let imageIndex = models.isEmpty ? index : models.count - iconModels.count + index
-            guard viewModels.count >= imageIndex else { return }
-            if let image = UIImage(data: imageData) {
-                models[imageIndex].imageData = imageData
-                viewModels[imageIndex].image = image
-                await viewController?.reloadRowAt(index: imageIndex)
+    func updateImageFor(_ index: Int) {
+        Task {
+            do {
+                let model = models[index]
+                let imageData = try await getImageDataFor(model: model)
+                if let image = UIImage(data: imageData) {
+                    models[index].imageData = imageData
+                    viewModels[index].image = image
+                    await viewController?.reloadRowAt(index: index)
+                }
+            } catch {
+                await viewController?.showToast(message: error.localizedDescription, success: false)
             }
         }
     }

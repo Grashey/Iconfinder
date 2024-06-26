@@ -8,7 +8,7 @@
 import UIKit
 import Photos
 
-class SearchViewController: UIViewController {
+class SearchViewController: SpinnerManager {
     
     var presenter: iSearchPresenter?
     
@@ -123,10 +123,16 @@ extension SearchViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let count = presenter?.viewModels.count else { return }
+        if let model = presenter?.viewModels[indexPath.row] {
+            if model.image == nil {
+                presenter?.updateImageFor(indexPath.row)
+            }
+        }
+        guard let count = presenter?.viewModels.count, !isLoading else { return }
         if indexPath.row > count - 2 {
             presenter?.fetchData()
         }
+        
     }
 }
 
