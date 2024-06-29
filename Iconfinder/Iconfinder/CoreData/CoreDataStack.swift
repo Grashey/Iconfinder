@@ -159,5 +159,4 @@ extension NSManagedObject {
         let entity = NSEntityDescription.entity(forEntityName: name, in: context)!
         self.init(entity: entity, insertInto: context)
     }
-
 }

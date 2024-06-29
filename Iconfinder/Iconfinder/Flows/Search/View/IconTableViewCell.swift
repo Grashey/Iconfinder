@@ -39,7 +39,6 @@ class IconTableViewCell: UITableViewCell {
     private lazy var downloadLabel: UILabel = {
         $0.text = SearchStrings.Title.download
         $0.font = .italicSystemFont(ofSize: 12)
-        $0.setContentCompressionResistancePriority(.required, for: .vertical)
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UILabel())
@@ -159,8 +158,6 @@ class IconTableViewCell: UITableViewCell {
             iconView.bottomAnchor.constraint(equalTo: iconBackground.bottomAnchor, constant: -inset),
             iconView.leadingAnchor.constraint(equalTo: iconBackground.leadingAnchor, constant: inset),
             iconView.trailingAnchor.constraint(equalTo: iconBackground.trailingAnchor, constant: -inset),
-
-//            iconView.heightAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 1),
             
             favoriteButton.topAnchor.constraint(equalTo: mainBackground.topAnchor, constant: inset),
             favoriteButton.trailingAnchor.constraint(equalTo: mainBackground.trailingAnchor, constant: -inset),

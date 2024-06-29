@@ -58,8 +58,8 @@ class FavoritesView: UIView {
         tableView.dataSource = delegateAndDataSourse
     }
     
-    func configureTableView(cell: AnyClass, with identifier: String) {
-        tableView.register(cell, forCellReuseIdentifier: identifier)
+    func configureTableView(cell: AnyClass) {
+        tableView.register(cell, forCellReuseIdentifier: cell.description())
     }
     
     func reloadTableView() {

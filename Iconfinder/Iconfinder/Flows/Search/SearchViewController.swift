@@ -34,7 +34,7 @@ class SearchViewController: SpinnerManager {
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         
-        searchView.configureTableView(cell: IconTableViewCell.self, with: IconTableViewCell.description())
+        searchView.configureTableView(cell: IconTableViewCell.self)
         searchView.configureTableView(delegateAndDataSourse: self)
         searchView.configureTableView(refreshControl: refreshControl)
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -96,13 +96,8 @@ extension SearchViewController: UITableViewDataSource {
         var image: UIImage?
         if let model = presenter?.viewModels[indexPath.row] {
             (cell as? IconTableViewCell)?.configure(model)
-            
             if let isFavorite = presenter?.isFavorite(index: indexPath.row) {
-                if isFavorite {
-                    image = UIImage(named: SearchStrings.Image.remove)
-                } else {
-                    image = UIImage(named: SearchStrings.Image.add)
-                }
+                image = isFavorite ? UIImage(named: SearchStrings.Image.remove) : UIImage(named: SearchStrings.Image.add)
             }
             (cell as? IconTableViewCell)?.configureButton(image: image, tag: indexPath.row)
             (cell as? IconTableViewCell)?.configureButton(target: self, action: #selector(operateFavorites(_:)))

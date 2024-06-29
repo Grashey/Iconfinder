@@ -31,7 +31,7 @@ class SearchPresenter: NSObject, iSearchPresenter {
     private var pageNumber: Int = 0
     private var totalCount: Int?
     private var searchText: String?
-    var isLoading: Bool = false {
+    private var isLoading: Bool = false {
         didSet {
             viewController?.isLoading = isLoading
         }
@@ -79,7 +79,8 @@ class SearchPresenter: NSObject, iSearchPresenter {
     
     func fetchData() {
         if let totalCount = totalCount {
-            guard totalCount >= pageNumber*10 else { return }
+            let resultsPerPage = 10
+            guard totalCount >= pageNumber*resultsPerPage else { return }
         }
         isLoading = true
         Task {
@@ -94,7 +95,7 @@ class SearchPresenter: NSObject, iSearchPresenter {
                 pageNumber += 1
                 isLoading = false
             } catch(let error) {
-                await viewController?.showToast(message: error.localizedDescription, success: false)
+                await viewController?.showToast(message: makeMassageFrom(error), success: false)
                 isLoading = false
             }
         }
@@ -138,7 +139,7 @@ class SearchPresenter: NSObject, iSearchPresenter {
     
     @objc private func savingStatus(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {
-            viewController?.showToast(message: error.localizedDescription, success: false)
+            viewController?.showToast(message: makeMassageFrom(error), success: false)
         } else {
             viewController?.showToast(message: SearchStrings.Alert.success, success: true)
         }
@@ -154,4 +155,13 @@ class SearchPresenter: NSObject, iSearchPresenter {
         return model
     }
     
+    private func makeMassageFrom(_ error: Error) -> String {
+        var message: String
+        if let networkError = error as? NetworkError {
+            message = networkError.message
+        } else {
+            message = error.localizedDescription
+        }
+        return message
+    }
 }

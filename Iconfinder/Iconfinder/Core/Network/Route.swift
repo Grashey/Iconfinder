@@ -8,13 +8,11 @@
 import Foundation
 
 protocol Route {
-
     var method: String { get }
     var url: String { get }
 }
 
 extension Route {
-    
     var method: String { "GET" }
 
     func makeURL(_ path: String? = nil) -> String {
