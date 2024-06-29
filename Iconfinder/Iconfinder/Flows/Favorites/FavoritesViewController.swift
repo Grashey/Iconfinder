@@ -22,7 +22,7 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         title = FavoritesStrings.Title.main
         
-        favoritesView.configureTableView(cell: IconTableViewCell.self, with: IconTableViewCell.description())
+        favoritesView.configureTableView(cell: IconTableViewCell.self)
         favoritesView.configureTableView(delegateAndDataSourse: self)
         
         presenter?.getData()
@@ -61,7 +61,6 @@ class FavoritesViewController: UIViewController {
         guard let isEmpty = presenter?.viewModels.isEmpty else { return }
         navigationItem.rightBarButtonItem?.isEnabled = !isEmpty
     }
-    
 }
 
 extension FavoritesViewController: UITableViewDataSource {

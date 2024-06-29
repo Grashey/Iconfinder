@@ -17,7 +17,7 @@ class SearchNetworkService: iSearchNetworkService {
     private let httpClient: iHTTPClient
     private let requestBuilder: iRequestBuilder
     
-    init(httpClient: iHTTPClient = HTTPClient(), requestBuilder: iRequestBuilder = RequestBuilder()) {
+    init(httpClient: iHTTPClient, requestBuilder: iRequestBuilder) {
         self.httpClient = httpClient
         self.requestBuilder = requestBuilder
     }
@@ -26,7 +26,7 @@ class SearchNetworkService: iSearchNetworkService {
         let pagination = 10
         let parameters = ["query": query ?? "",
                           "offset": String(page*pagination),
-                          "count": "\(pagination)",
+                          "count": String(pagination),
                           "premium": "false",
                           "vector": "false"]
         let request = requestBuilder.makeRequest(route: SearchRoute.search, parameters: parameters)
@@ -39,5 +39,4 @@ class SearchNetworkService: iSearchNetworkService {
         let response = try await httpClient.send(request: request)
         return response.data
     }
-    
 }
