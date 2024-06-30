@@ -26,7 +26,7 @@ final class RequestBuilder: iRequestBuilder {
             components?.queryItems = parameters.map { URLQueryItem(name: $0.key, value: "\($0.value)") }
         }
         let url = components?.url
-        var request = URLRequest(url: url!, cachePolicy: .returnCacheDataElseLoad)
+        var request = URLRequest(url: url!, cachePolicy: .reloadRevalidatingCacheData)
         request.httpMethod = route.method
         request.setValue("Bearer \(Api.key)", forHTTPHeaderField: "Authorization")
         
